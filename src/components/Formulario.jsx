@@ -10,6 +10,7 @@ const valoresInicialesForm = {
 
 const Formulario = () => {
     const [formulario, setFormulario] = useState(valoresInicialesForm);
+    const [listaPeliculas, setListaPeliculas] = useState([]);
 
     const handleChange = (e) => {
         //desestructuro el name y el value del objeto e.tarjet:
@@ -17,7 +18,10 @@ const Formulario = () => {
         setFormulario({ ...formulario, [name]: value });
     };
 
-    const handleSubmit = () => {};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setListaPeliculas([...listaPeliculas, formulario]);
+    };
 
     return (
         <>
@@ -33,8 +37,8 @@ const Formulario = () => {
                         {/* al Form.Select no le anda el required de bootstrap... ??? */}
                         <Form.Select required aria-label="Default select " onChange={handleChange} name="categoria">
                             <option value="">Seleccione una opción...</option>
-                            <option value="comedia">Comedia</option>
-                            <option value="drama">Drama</option>
+                            <option value="comedia">Acción</option>
+                            <option value="drama">Comedia</option>
                             <option value="infantil">Infantíl</option>
                         </Form.Select>
                     </Form.Group>
