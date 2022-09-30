@@ -11,7 +11,11 @@ const valoresInicialesForm = {
 const Formulario = () => {
     const [formulario, setFormulario] = useState(valoresInicialesForm);
 
-    const handleChange = () => {};
+    const handleChange = (e) => {
+        //desestructuro el name y el value del objeto e.tarjet:
+        const { name, value } = e.target;
+        setFormulario({ ...formulario, [name]: value });
+    };
 
     const handleSubmit = () => {};
 
@@ -21,13 +25,13 @@ const Formulario = () => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="Form.ControlInput1">
                         <Form.Label className="fs-5 lead ms-2">Título</Form.Label>
-                        <Form.Control required type="text" placeholder="Ej: Forrest Gump" onChange={handleChange} />
+                        <Form.Control required type="text" placeholder="Ej: Forrest Gump" onChange={handleChange} name="titulo" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="Form.ControlInput2">
                         <Form.Label className="fs-5 lead ms-2">Categoría</Form.Label>
                         {/* al Form.Select no le anda el required de bootstrap... ??? */}
-                        <Form.Select required aria-label="Default select " onChange={handleChange}>
+                        <Form.Select required aria-label="Default select " onChange={handleChange} name="categoria">
                             <option value="">Seleccione una opción...</option>
                             <option value="comedia">Comedia</option>
                             <option value="drama">Drama</option>
@@ -43,6 +47,7 @@ const Formulario = () => {
                             rows={3}
                             placeholder="Agregue un resumen breve de la pelicula."
                             onChange={handleChange}
+                            name="sinopsis"
                         />
                     </Form.Group>
                     <Form.Group className="my-3 text-center" controlId="Form.ControlButton">
