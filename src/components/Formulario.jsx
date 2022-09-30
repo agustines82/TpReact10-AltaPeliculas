@@ -21,6 +21,7 @@ const Formulario = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setListaPeliculas([...listaPeliculas, pelicula]);
+        setPelicula(valoresInicialesForm);
     };
 
     return (
@@ -29,13 +30,20 @@ const Formulario = () => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="Form.ControlInput1">
                         <Form.Label className="fs-5 lead ms-2">Título</Form.Label>
-                        <Form.Control required type="text" placeholder="Ej: Forrest Gump" onChange={handleChange} name="titulo" />
+                        <Form.Control
+                            required
+                            type="text"
+                            placeholder="Ej: Forrest Gump"
+                            onChange={handleChange}
+                            name="titulo"
+                            value={pelicula.titulo}
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="Form.ControlInput2">
                         <Form.Label className="fs-5 lead ms-2">Categoría</Form.Label>
                         {/* al Form.Select no le anda el required de bootstrap... ??? */}
-                        <Form.Select required aria-label="Default select " onChange={handleChange} name="categoria">
+                        <Form.Select required aria-label="Default select " onChange={handleChange} name="categoria" value={pelicula.categoria}>
                             <option value="">Seleccione una opción...</option>
                             <option value="comedia">Acción</option>
                             <option value="drama">Comedia</option>
@@ -52,6 +60,7 @@ const Formulario = () => {
                             placeholder="Agregue un resumen breve de la pelicula."
                             onChange={handleChange}
                             name="sinopsis"
+                            value={pelicula.sinopsis}
                         />
                     </Form.Group>
                     <Form.Group className="my-3 text-center" controlId="Form.ControlButton">
