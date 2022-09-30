@@ -9,18 +9,18 @@ const valoresInicialesForm = {
 };
 
 const Formulario = () => {
-    const [formulario, setFormulario] = useState(valoresInicialesForm);
+    const [pelicula, setPelicula] = useState(valoresInicialesForm);
     const [listaPeliculas, setListaPeliculas] = useState([]);
 
     const handleChange = (e) => {
         //desestructuro el name y el value del objeto e.tarjet:
         const { name, value } = e.target;
-        setFormulario({ ...formulario, [name]: value });
+        setPelicula({ ...pelicula, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setListaPeliculas([...listaPeliculas, formulario]);
+        setListaPeliculas([...listaPeliculas, pelicula]);
     };
 
     return (
