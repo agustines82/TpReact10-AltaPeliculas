@@ -6,7 +6,7 @@ function App() {
     return (
         <main className="container bg-dark p-3">
             <h1 className="display-6 text-center text-light mt-3">
-                Alta de peliculas <i class="bi bi-camera-video"></i>
+                Alta de peliculas <i className="bi bi-camera-video"></i>
             </h1>
             <hr className="mt-0 mx-5 text-light " />
             <Formulario />

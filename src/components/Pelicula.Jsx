@@ -6,7 +6,7 @@ const Pelicula = () => {
                 <Card>
                     <Card.Body>
                         <Card.Title className="lead">
-                            <i class="bi bi-film"></i> Titulo
+                            <i className="bi bi-film"></i> Titulo
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Categoria</Card.Subtitle>
                         <Card.Text>Descripción quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
@@ -17,7 +17,7 @@ const Pelicula = () => {
                 <Card>
                     <Card.Body>
                         <Card.Title className="lead">
-                            <i class="bi bi-film"></i> Titulo
+                            <i className="bi bi-film"></i> Titulo
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Categoria</Card.Subtitle>
                         <Card.Text>Descripción quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
@@ -28,7 +28,7 @@ const Pelicula = () => {
                 <Card>
                     <Card.Body>
                         <Card.Title className="lead">
-                            <i class="bi bi-film"></i> Titulo
+                            <i className="bi bi-film"></i> Titulo
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Categoria</Card.Subtitle>
                         <Card.Text>Descripción quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
@@ -39,7 +39,7 @@ const Pelicula = () => {
                 <Card>
                     <Card.Body>
                         <Card.Title className="lead">
-                            <i class="bi bi-film"></i> Titulo
+                            <i className="bi bi-film"></i> Titulo
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Categoria</Card.Subtitle>
                         <Card.Text>Descripción quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
@@ -50,7 +50,7 @@ const Pelicula = () => {
                 <Card>
                     <Card.Body>
                         <Card.Title className="lead">
-                            <i class="bi bi-film"></i> Titulo
+                            <i className="bi bi-film"></i> Titulo
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Categoria</Card.Subtitle>
                         <Card.Text>Descripción quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
@@ -61,7 +61,7 @@ const Pelicula = () => {
                 <Card>
                     <Card.Body>
                         <Card.Title className="lead">
-                            <i class="bi bi-film"></i> Titulo
+                            <i className="bi bi-film"></i> Titulo
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Categoria</Card.Subtitle>
                         <Card.Text>Descripción quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
