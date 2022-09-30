@@ -80,7 +80,7 @@ const Formulario = () => {
                     Lista de peliculas <i className="bi bi-camera-reels"></i>
                 </h1>
                 <hr className="mt-0 mx-5 text-light" />
-                <ListaPeliculas />
+                <ListaPeliculas listadoPeliculas={listadoPeliculas} />
             </section>
         </>
     );

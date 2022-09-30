@@ -1,9 +1,11 @@
 import Pelicula from "./Pelicula";
-const ListaPeliculas = () => {
+const ListaPeliculas = ({ listadoPeliculas }) => {
     return (
         <>
             <section className="container row justify-content-center">
-                <Pelicula />
+                {listadoPeliculas.map((elemento, posicion) => (
+                    <Pelicula key={posicion} movie={elemento} />
+                ))}
             </section>
         </>
     );
