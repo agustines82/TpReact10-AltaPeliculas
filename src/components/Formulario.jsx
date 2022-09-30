@@ -51,7 +51,7 @@ const Formulario = () => {
         }
     };
     const validarSinopsis = (sinopsis) => {
-        if (sinopsis.length >= 15 && sinopsis.length >= 80) {
+        if (sinopsis.length >= 15 && sinopsis.length <= 80) {
             setDisplaySinopsis("none");
             return true;
         } else {
