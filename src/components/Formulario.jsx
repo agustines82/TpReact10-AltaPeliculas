@@ -1,6 +1,6 @@
 import ListaPeliculas from "./ListaPeliculas";
 import { Form, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const valoresInicialesForm = {
     titulo: "",
@@ -9,8 +9,13 @@ const valoresInicialesForm = {
 };
 
 const Formulario = () => {
+    const peliculasLocalStorage = JSON.parse(localStorage.getItem("keyListaPeliculas")) || [];
     const [pelicula, setPelicula] = useState(valoresInicialesForm);
-    const [listaPeliculas, setListaPeliculas] = useState([]);
+    const [listadoPeliculas, setListadoPeliculas] = useState(peliculasLocalStorage);
+
+    useEffect(() => {
+        localStorage.setItem("keyListaPeliculas", JSON.stringify(listadoPeliculas));
+    }, [listadoPeliculas]);
 
     const handleChange = (e) => {
         //desestructuro el name y el value del objeto e.tarjet:
@@ -20,7 +25,7 @@ const Formulario = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setListaPeliculas([...listaPeliculas, pelicula]);
+        setListadoPeliculas([...listadoPeliculas, pelicula]);
         setPelicula(valoresInicialesForm);
     };
 
