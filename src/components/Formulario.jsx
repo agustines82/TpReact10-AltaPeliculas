@@ -32,7 +32,7 @@ const Formulario = () => {
     //validaciones
     const validarTitulo = (titulo) => {
         let expReg = /^[a-zA-ZÀ-ÿ\s]{2,25}$/; // Letras y espacios, pueden llevar acentos.
-        if (expReg.test(titulo)) {
+        if (expReg.test(titulo.trim())) {
             setDisplayTitulo("none");
             return true;
         } else {
@@ -51,8 +51,7 @@ const Formulario = () => {
         }
     };
     const validarSinopsis = (sinopsis) => {
-        let expReg = /^[a-zA-ZÀ-ÿ\s]{15,80}$/;
-        if (expReg.test(sinopsis)) {
+        if (sinopsis.length >= 15 && sinopsis.length >= 80) {
             setDisplaySinopsis("none");
             return true;
         } else {
