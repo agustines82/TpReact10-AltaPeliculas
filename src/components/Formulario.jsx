@@ -1,6 +1,10 @@
 import ListaPeliculas from "./ListaPeliculas";
 import { Form, Button } from "react-bootstrap";
+import { useState } from "react";
 const Formulario = () => {
+    const [titulo, setTitulo] = useState("");
+    const [categoria, setCategoria] = useState("");
+    const [sinopsis, setSinopsis] = useState("");
     return (
         <>
             <section className="container border rounded p-3 bg-light">
@@ -22,8 +26,8 @@ const Formulario = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="Form.ControlTextarea1">
-                        <Form.Label className="fs-5 lead ms-2">Descripción</Form.Label>
-                        <Form.Control required as="textarea" rows={3} placeholder="Agregue una sinopsis..." />
+                        <Form.Label className="fs-5 lead ms-2">Sinopsis</Form.Label>
+                        <Form.Control required as="textarea" rows={3} placeholder="Agregue un resumen breve de la pelicula." />
                     </Form.Group>
                     <Form.Group className="my-3 text-center" controlId="Form.ControlButton">
                         <Button variant="outline-dark" type="submit">
