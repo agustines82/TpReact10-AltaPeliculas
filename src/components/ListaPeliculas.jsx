@@ -1,5 +1,12 @@
+import Pelicula from "./Pelicula";
 const ListaPeliculas = () => {
-    return <div></div>;
+    return (
+        <>
+            <section className="container row justify-content-center">
+                <Pelicula />
+            </section>
+        </>
+    );
 };
 
 export default ListaPeliculas;
