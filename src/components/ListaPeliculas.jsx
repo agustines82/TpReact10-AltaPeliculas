@@ -1,10 +1,11 @@
-import Pelicula from "./Pelicula";
+import Peliculas from "./Peliculas";
+
 const ListaPeliculas = ({ listadoPeliculas }) => {
     return (
         <>
             <section className="container row justify-content-center">
                 {listadoPeliculas.map((elemento, posicion) => (
-                    <Pelicula key={posicion} movie={elemento} />
+                    <Peliculas key={posicion} movie={elemento} />
                 ))}
             </section>
         </>
