@@ -1,7 +1,8 @@
 import ListaPeliculas from "./ListaPeliculas";
 import { Form, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-
+//import { validarTitulo, validarCategoria, validarSinopsis } from "./helpers";
+import Swal from "sweetalert2";
 const valoresInicialesForm = {
     titulo: "",
     categoria: "",
@@ -23,10 +24,56 @@ const Formulario = () => {
         setPelicula({ ...pelicula, [name]: value });
     };
 
+    //variables para controlar las leyendas
+    const [displayTitulo, setDisplayTitulo] = useState("none");
+    const [displayCategoria, setDisplayCategoria] = useState("none");
+    const [displaySinopsis, setDisplaySinopsis] = useState("none");
+
+    //validaciones
+    const validarTitulo = (titulo) => {
+        let expReg = /^[a-zA-ZÀ-ÿ\s]{2,25}$/; // Letras y espacios, pueden llevar acentos.
+        if (expReg.test(titulo)) {
+            setDisplayTitulo("none");
+            return true;
+        } else {
+            setDisplayTitulo("block");
+            return false;
+        }
+    };
+    const validarCategoria = (categoria) => {
+        //en este caso al ser categoria un select solo debemos validar que el value del select no sea igual a 0
+        if (categoria !== "0") {
+            setDisplayCategoria("none");
+            return true;
+        } else {
+            setDisplayCategoria("block");
+            return false;
+        }
+    };
+    const validarSinopsis = (sinopsis) => {
+        let expReg = /^[a-zA-ZÀ-ÿ\s]{15,80}$/;
+        if (expReg.test(sinopsis)) {
+            setDisplaySinopsis("none");
+            return true;
+        } else {
+            setDisplaySinopsis("block");
+            return false;
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setListadoPeliculas([...listadoPeliculas, pelicula]);
-        setPelicula(valoresInicialesForm);
+        if (validarTitulo(pelicula.titulo) && validarCategoria(pelicula.categoria) && validarSinopsis(pelicula.sinopsis)) {
+            setListadoPeliculas([...listadoPeliculas, pelicula]);
+            setPelicula(valoresInicialesForm);
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Algo va mal!",
+                footer: "Verifica que hayas cargado bien los datos",
+            });
+        }
     };
 
     return (
@@ -40,20 +87,33 @@ const Formulario = () => {
                             type="text"
                             placeholder="Ej: Forrest Gump"
                             onChange={handleChange}
+                            onBlur={() => validarTitulo(pelicula.titulo)}
                             name="titulo"
                             value={pelicula.titulo}
                         />
+                        <Form.Label className="fs-7 ms-2 mt-0 text-danger" style={{ display: displayTitulo }}>
+                            El campo Titulo es requerido. Se requiere un mínimo de 2 caracteres a un maximo de 25.
+                        </Form.Label>
                     </Form.Group>
-
                     <Form.Group className="mb-3" controlId="Form.ControlInput2">
                         <Form.Label className="fs-5 lead ms-2">Categoría</Form.Label>
                         {/* al Form.Select no le anda el required de bootstrap... ??? */}
-                        <Form.Select required aria-label="Default select " onChange={handleChange} name="categoria" value={pelicula.categoria}>
-                            <option value="">Seleccione una opción...</option>
-                            <option value="comedia">Acción</option>
-                            <option value="drama">Comedia</option>
-                            <option value="infantil">Infantíl</option>
+                        <Form.Select
+                            required
+                            aria-label="Default select "
+                            onChange={handleChange}
+                            onBlur={() => validarCategoria(pelicula.categoria)}
+                            name="categoria"
+                            value={pelicula.categoria}
+                        >
+                            <option value="0">Seleccione una opción...</option>
+                            <option value="1">Acción</option>
+                            <option value="2">Comedia</option>
+                            <option value="3">Infantíl</option>
                         </Form.Select>
+                        <Form.Label className="fs-7 ms-2 mt-0 text-danger" style={{ display: displayCategoria }}>
+                            Selecciona un opción
+                        </Form.Label>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="Form.ControlTextarea1">
@@ -64,9 +124,13 @@ const Formulario = () => {
                             rows={3}
                             placeholder="Agregue un resumen breve de la pelicula."
                             onChange={handleChange}
+                            onBlur={() => validarSinopsis(pelicula.sinopsis)}
                             name="sinopsis"
                             value={pelicula.sinopsis}
                         />
+                        <Form.Label className="fs-7 ms-2 mt-0 text-danger" style={{ display: displaySinopsis }}>
+                            El campo Sinopsis es requerido. Se requiere un mínimo de 15 caracteres a un maximo de 80.
+                        </Form.Label>
                     </Form.Group>
                     <Form.Group className="my-3 text-center" controlId="Form.ControlButton">
                         <Button variant="outline-dark" type="submit">
