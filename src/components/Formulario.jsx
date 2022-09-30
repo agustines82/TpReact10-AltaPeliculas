@@ -42,12 +42,13 @@ const Formulario = () => {
     };
     const validarCategoria = (categoria) => {
         //en este caso al ser categoria un select solo debemos validar que el value del select no sea igual a 0
-        if (categoria !== "0") {
-            setDisplayCategoria("none");
-            return true;
-        } else {
+        console.log(categoria);
+        if (categoria === 0) {
             setDisplayCategoria("block");
             return false;
+        } else {
+            setDisplayCategoria("none");
+            return true;
         }
     };
     const validarSinopsis = (sinopsis) => {
