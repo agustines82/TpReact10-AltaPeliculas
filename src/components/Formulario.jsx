@@ -2,23 +2,32 @@ import ListaPeliculas from "./ListaPeliculas";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
+const valoresInicialesForm = {
+    titulo: "",
+    categoria: "",
+    sinopsis: "",
+};
+
 const Formulario = () => {
-    const [titulo, setTitulo] = useState("");
-    const [categoria, setCategoria] = useState("");
-    const [sinopsis, setSinopsis] = useState("");
+    const [formulario, setFormulario] = useState(valoresInicialesForm);
+
+    const handleChange = () => {};
+
+    const handleSubmit = () => {};
+
     return (
         <>
             <section className="container border rounded p-3 bg-light">
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="Form.ControlInput1">
                         <Form.Label className="fs-5 lead ms-2">Título</Form.Label>
-                        <Form.Control required type="text" placeholder="Ej: Forrest Gump" onChange={(e) => setTitulo(e.target.value)} />
+                        <Form.Control required type="text" placeholder="Ej: Forrest Gump" onChange={handleChange} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="Form.ControlInput2">
                         <Form.Label className="fs-5 lead ms-2">Categoría</Form.Label>
                         {/* al Form.Select no le anda el required de bootstrap... ??? */}
-                        <Form.Select required aria-label="Default select " onChange={(e) => setCategoria(e.target.value)}>
+                        <Form.Select required aria-label="Default select " onChange={handleChange}>
                             <option value="">Seleccione una opción...</option>
                             <option value="comedia">Comedia</option>
                             <option value="drama">Drama</option>
@@ -33,7 +42,7 @@ const Formulario = () => {
                             as="textarea"
                             rows={3}
                             placeholder="Agregue un resumen breve de la pelicula."
-                            onChange={(e) => setSinopsis(e.target.value)}
+                            onChange={handleChange}
                         />
                     </Form.Group>
                     <Form.Group className="my-3 text-center" controlId="Form.ControlButton">
