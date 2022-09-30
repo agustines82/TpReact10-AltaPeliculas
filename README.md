@@ -1,4 +1,4 @@
-# Trabajo Practico de React - Paleta de colores
+# Trabajo Practico de React - Listado de Peliculas
 
 Trabajo practico que consiste en crear una aplicación web con react que contenga un formulario con los siguientes campos:
 nombre (en un campo de texto)
@@ -26,7 +26,7 @@ una vez clonado el proyecto debera ejecutar el siguiente comando en su terminal:
 
 Puedes ver el proyecto online
 
-[Netlify]()
+[Netlify](https://stalwart-zabaione-7a8bfa.netlify.app/)
 
 ## autor
 
