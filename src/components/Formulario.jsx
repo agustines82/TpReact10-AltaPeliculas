@@ -42,8 +42,7 @@ const Formulario = () => {
     };
     const validarCategoria = (categoria) => {
         //en este caso al ser categoria un select solo debemos validar que el value del select no sea igual a 0
-        console.log(categoria);
-        if (categoria === 0) {
+        if (categoria === "") {
             setDisplayCategoria("block");
             return false;
         } else {
@@ -106,7 +105,7 @@ const Formulario = () => {
                             name="categoria"
                             value={pelicula.categoria}
                         >
-                            <option value="0">Seleccione una opción...</option>
+                            <option value="">Seleccione una opción...</option>
                             <option value="1">Acción</option>
                             <option value="2">Comedia</option>
                             <option value="3">Infantíl</option>
