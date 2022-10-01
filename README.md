@@ -26,7 +26,7 @@ una vez clonado el proyecto debera ejecutar el siguiente comando en su terminal:
 
 Puedes ver el proyecto online
 
-[Netlify](https://stalwart-zabaione-7a8bfa.netlify.app/)
+[Netlify](https://gorgeous-chaja-6cc041.netlify.app/)
 
 ## autor
 
